@@ -69,7 +69,7 @@ var loadPagesInfo = function(pages){
       $page.find('.about').text(response.about);
       $page.find('.likes').text(response.likes);
       FB.api(item.id+'/picture?type=large', function(response){
-        $page.find('thumbnail img').attr('src', response.data.url);
+        $page.find('.thumbnail img').attr('src', response.data.url);
         $page.appendTo(counter);
         // 塞資料到 html 中
         counter++;
