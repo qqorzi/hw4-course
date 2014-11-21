@@ -19,7 +19,6 @@ window.fbAsyncInit = function() {
       //清空結果
       $($listRoot).empty();
       $('#moreBtn').addClass('hide');
-      // 臉書登入SDK
       FB.login(function(response) {
         if(response.authResponse) {
             //讀取個人信息
@@ -64,7 +63,6 @@ var loadPagesInfo = function(pages){
     //從 template 塞資料
     var $page = $(tmpl).clone();
     FB.api(item.id, function(response){
-      // 塞 name, about, like 數到 html 裡。
       $page.find('.title a').text(response.name).attr('href',response.link);
       $page.find('.about').text(response.about);
       $page.find('.likes').text(response.likes);
@@ -83,4 +81,3 @@ var loadPagesInfo = function(pages){
     });
   });
 };
-
