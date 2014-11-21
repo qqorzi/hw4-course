@@ -34,7 +34,7 @@ window.fbAsyncInit = function() {
               //把讀到的資料放進html
               loadPagesInfo(likes);
               // save next request url to moreBtn and show it
-              ('#moreBtn').data('next', next).removeClass('hide');
+              $('#moreBtn').data('next', next).removeClass('hide');
             });
         }else{
             console.log('User cancelled login or did not fully authorize.');
