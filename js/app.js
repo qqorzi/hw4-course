@@ -62,10 +62,12 @@ var loadPagesInfo = function(pages){
     var $page = $(tmpl).clone();
     FB.api(item.id, function(response){
       // 塞 name, about, like 數到 html 裡。
-      $page.fine('title a').text(response.name).affr('href',response.like);
+      $page.fine('.title a').text(response.name).affr('href',response.like);
       $page.fine('.about').text(response.about);
-      %page.fine('likes').text(response.likes);
-      FB.api(/*輸入圖片連結*/, function(response){
+      %page.fine('.likes').text(response.likes);
+      FB.api(item.id+'/picture?type=large', function(response){
+        $page.find('thumbnail img').attr('src', response.data.url);
+        $page.appendTo(counter);
         // 塞資料到 html 中
         counter++;
         // 塞完資料以後處理一下斷行
